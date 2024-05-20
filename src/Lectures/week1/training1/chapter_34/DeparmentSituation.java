@@ -6,18 +6,19 @@ public class DeparmentSituation {
         Staff staff = new Staff();
         staff.setSalesAmount(1_000_000);
 
-        Customer customer1 = new VIPCustomer("cho");
+        Customer customer = new VIPCustomer("cho");
 
 
         Customer[] customerQueue = {
-                new Customer("lee"), customer1, new VIPCustomer("hwang"),
+                new Customer("lee"), customer, new VIPCustomer("hwang"),
                 new Customer("gin"), new Customer("in"), new VIPCustomer("yu"),
-                new Customer("yang"), customer1, customer1
+                new Customer("yang"), customer, customer,
+                new GoldCustomer("lim"), new GoldCustomer("son"), new GoldCustomer("jung")
         };
 
-        for (Customer customer : customerQueue) {
-            customer.printMyInfo();
-            int cash = staff.helpPayment(customer, price);
+        for (Customer customerEach : customerQueue) {
+            customerEach.printMyInfo();
+            int cash = staff.helpPayment(customerEach, price);
             System.out.printf("내가 내는 금액 %d\n", cash);
             staff.addSalesAmount(cash);
         }
