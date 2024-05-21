@@ -2,24 +2,30 @@ package assignments.week1.assignment1;
 
 public class ShapeTest {
     public static void main(String[] args) {
-        Shape shape1 = new Circle("빨강", 4.0);
-        Shape shape2 = new Rectangle("파랑", 3.0, 4.0);
+        Circle circle = new Circle(5.0);
+        System.out.println("기본 원 색상 :" + circle.getColor());
+        System.out.println("기본 원 차원 :" + circle.getDimension());
+        circle.setColor("빨강");
 
-        System.out.println("Shape1 면적 크기: " + shape1.getArea());
-        System.out.println("Shape2 면적 크기: " + shape2.getArea());
+        System.out.println("원의 반지름:" + circle.getRadius());
+        System.out.println("원의 지름:" + circle.calculateDiameter(circle));
+        System.out.println("원의 둘레:" + circle.calculateCircumference());
+        System.out.println("원의 면적:" + circle.calculateArea());
+        System.out.println("원의 색상:" + circle.getColor());
 
-        System.out.println("------------------------");
+        System.out.println("===========================================");
 
-        if (shape1 instanceof Circle) {
-            Circle circle = (Circle) shape1;
-            circle.printCircleInfo();
-        }
+        Rectangle rectangle = new Rectangle(4.0, 6.0);
+        System.out.println("기본 직사각형 색상: " + rectangle.getColor());
+        System.out.println("기본 직사각형 차원: " + rectangle.getDimension());
 
-        System.out.println("------------------------");
+        rectangle.setColor("파랑");  // 도형의 색상 설정
 
-        if (shape2 instanceof Rectangle) {
-            Rectangle rectangle = (Rectangle) shape2;
-            rectangle.printRectangleInfo();
-        }
+        System.out.println("직사각형 가로 길이: " + rectangle.getWidth());
+        System.out.println("직사각형 세로 길이: " + rectangle.getHeight());
+        System.out.println("직사각형 대각선 길이: " + rectangle.calculateDiagonal());
+        System.out.println("직사각형 면적: " + rectangle.calculateArea());
+        System.out.println("직사각형 둘레길이: " + rectangle.calculateCircumference());
+        System.out.println("직사각형 색상: " + rectangle.getColor());
     }
 }

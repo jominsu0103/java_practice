@@ -1,18 +1,18 @@
 package assignments.week1.assignment1;
 
-public class Shape {
-    protected String color;
+public abstract class Shape {
+    protected String color = "기본색";
+    protected int dimension = 2;
 
-    protected Shape(String color) {
-        this.color = color;
+    public String getColor() {
+        return color;
     }
 
-    public double getArea() {
-        return 0.0;
+    public int getDimension() {
+        return dimension;
     }
 
-    protected void printInfo() {
-        System.out.println("도형의 색상: " + color);
-        System.out.println("도형의 면적: " + getArea());
-    }
+    abstract double calculateArea();
+
+    abstract double calculateCircumference();
 }

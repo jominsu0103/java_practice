@@ -4,21 +4,34 @@ public class Rectangle extends Shape {
     private double width;
     private double height;
 
-    public Rectangle(String color, double width, double height) {
-        super(color);
+    public Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double calculateDiagonal() {
+        return Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
+    }
+
     @Override
-    public double getArea() {
+    double calculateArea() {
         return width * height;
     }
 
-    public void printRectangleInfo() {
-        System.out.println("도형의 색상: " + color);
-        System.out.println("도형의 면적: " + getArea());
-        System.out.println("사각형의 가로 길이: " + width);
-        System.out.println("사각형의 세로 길이: " + height);
+    @Override
+    double calculateCircumference() {
+        return 2 * (width + height);
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -1,22 +1,33 @@
 package assignments.week1.assignment1;
 
 public class Circle extends Shape {
-    private static final double PI = 3.14;
     private double radius;
 
-    public Circle(String color, double radius) {
-        super(color);
+    public Circle(double radius) {
         this.radius = radius;
     }
 
-    @Override
-    public double getArea() {
-        return PI * radius * radius;
+    public double getRadius() {
+        return radius;
     }
 
-    public void printCircleInfo() {
-        System.out.println("도형의 색상: " + color);
-        System.out.println("도형의 면적: " + getArea());
-        System.out.println("원의 반지름: " + radius);
+    public double calculateDiameter(Circle circle) {
+        double inputRadius = circle.getRadius();
+        double diameter = inputRadius * 2;
+        return diameter;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    @Override
+    double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
