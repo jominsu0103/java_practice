@@ -9,7 +9,7 @@ public class GoldCustomer extends Customer {
         return price;
     }
 
-    GoldCustomer(String name) {
+    public GoldCustomer(String name) {
         super();
         this.customerID = "Customer" + Customer.serialNum++;
         this.name = name;
@@ -17,5 +17,17 @@ public class GoldCustomer extends Customer {
         this.bonusPoint = 0;
         this.discountRatio = 0.03;
         this.bonusPointRatio = 0.03;
+    }
+
+    @Override
+    public String toString() {
+        return "GoldCustomer{" +
+                "discountRatio=" + discountRatio +
+                ", customerID='" + customerID + '\'' +
+                ", name='" + name + '\'' +
+                ", customerGrade='" + customerGrade + '\'' +
+                ", bonusPoint=" + bonusPoint +
+                ", bonusPointRatio=" + bonusPointRatio +
+                '}';
     }
 }

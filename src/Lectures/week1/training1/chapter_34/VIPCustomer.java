@@ -1,5 +1,7 @@
 package Lectures.week1.training1.chapter_34;
 
+import java.util.Objects;
+
 public class VIPCustomer extends Customer {
     static int serialNum = 1;
     private String agentID;
@@ -20,7 +22,7 @@ public class VIPCustomer extends Customer {
         System.out.println("담당직원 " + this.agentID + "님 문의드릴게 있어요");
     }
 
-    VIPCustomer(String name) {
+    public VIPCustomer(String name) {
         super();
         this.customerID = "VIP" + serialNum++;
         this.name = name;
@@ -28,6 +30,11 @@ public class VIPCustomer extends Customer {
         this.bonusPoint = 0;
         this.bonusPointRatio = 0.05;
         this.discountRatio = 0.1;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.customerID);
     }
 
     @Override

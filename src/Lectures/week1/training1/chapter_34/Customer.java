@@ -1,5 +1,7 @@
 package Lectures.week1.training1.chapter_34;
 
+import java.util.Objects;
+
 public class Customer {
     // 속성
     static int serialNum = 1;
@@ -15,7 +17,36 @@ public class Customer {
         return price;
     }
 
-    Customer(String name) {
+
+    public void printMyInfo() {
+        System.out.printf("Customer: customerID=%s , name=%s , grade=%s , bonusPoint=%d\n",
+                this.customerID, this.name, this.customerGrade, this.bonusPoint);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Customer: customerID=%s , name=%s , grade=%s , bonusPoint=%d",
+                this.customerID, this.name, this.customerGrade, this.bonusPoint);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj instanceof Customer) {
+            Customer customer = (Customer) obj;
+            return customer.customerID == this.customerID;
+        }
+        return false;
+    }
+
+    public Customer(String customerID, String name) {
+        this(name);
+        this.customerID = customerID;
+    }
+
+    public Customer(String name) {
         this.customerID = "Customer" + serialNum++;
         this.name = name;
         this.customerGrade = "SILVER";
@@ -23,9 +54,9 @@ public class Customer {
         this.bonusPoint = 0;
     }
 
-    public void printMyInfo() {
-        System.out.printf("Customer: customerID=%s , name=%s , grade=%s , bonusPoint=%d\n",
-                this.customerID, this.name, this.customerGrade, this.bonusPoint);
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.customerID);
     }
 
     Customer() {
