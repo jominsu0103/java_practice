@@ -18,6 +18,9 @@ dependencies {
     // Jasyot 암호화 라이브러리
     implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.3'
 
+    // JDBC
+    implementation 'mysql:mysql-connector-java:8.0.27'
+
 }
 
 test {
